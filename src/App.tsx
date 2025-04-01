@@ -10,8 +10,8 @@ const ServiceRquestForm = ()=>{
     description:"",
     additionalNotes:"",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para o botão "Enviando"
-  const [isSubmitted, setIsSubmitted] = useState(false); // Estado para a página de agradecimento
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [isSubmitted, setIsSubmitted] = useState(false); 
 
 
   const handleChange = (e: { target: { name: any; value: any; }; })=>{
@@ -22,7 +22,7 @@ const ServiceRquestForm = ()=>{
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault();
     console.log(formData);
-    setIsSubmitting(true); // Altera o estado para "Enviando"
+    setIsSubmitting(true); 
     try {
       const response = await fetch('/api/SendEmailClc', {
         method: 'POST',
@@ -31,7 +31,7 @@ const ServiceRquestForm = ()=>{
       });
 
       if (response.ok) {
-        setIsSubmitted(true); // Mostra a mensagem de agradecimento
+        setIsSubmitted(true); 
       } else {
         
         alert('Erro ao enviar o e-mail.');
